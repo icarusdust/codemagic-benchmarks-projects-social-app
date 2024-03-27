@@ -76,9 +76,9 @@ workflows:
         distribution_type: app_store
         bundle_identifier: cm.blueskyweb.app
       vars:
-          XCODE_WORKSPACE: "CodemagicOTA.xcworkspace" # <-- Put the name of your Xcode workspace here
-          XCODE_SCHEME: "CodemagicOTA" # <-- Put the name of your Xcode scheme here
-          BUNDLE_ID: "io.cm.ota.com" # <-- Put your Bundle Id here e.g com.domain.myapp
+          XCODE_PROJECT: "Bluesky.xcodeproj" # <-- Put the name of your Xcode workspace here
+          XCODE_SCHEME: "Bluesky" # <-- Put the name of your Xcode scheme here
+          BUNDLE_ID: "cm.blueskyweb.app" # <-- Put your Bundle Id here e.g com.domain.myapp
           APP_ID: 6480049997 # <-- Put the app id number here. This is found in App Store Connect > App > General > App Information
     
     cache:

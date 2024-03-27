@@ -74,7 +74,7 @@ workflows:
     environment:
       ios_signing:
         distribution_type: app_store
-        bundle_identifier: xyz.blueskyweb.app
+        bundle_identifier: cm.blueskyweb.app
       vars:
           XCODE_WORKSPACE: "CodemagicOTA.xcworkspace" # <-- Put the name of your Xcode workspace here
           XCODE_SCHEME: "CodemagicOTA" # <-- Put the name of your Xcode scheme here

@@ -6,7 +6,7 @@ workflows:
   react-native-android:
     name: React Native Android
     max_build_duration: 120
-    instance_type: linux_x2
+    instance_type: mac_mini_m2
     environment:
       android_signing:
         - keystore_reference
@@ -27,12 +27,11 @@ workflows:
     scripts:
       - name: Install dependencies and set up app
         script: |
-          yarn install
-          yarn global add expo-cli
-          expo eject
-      - name: Set up app/build.gradle
-        script: |
-          mv ./support-files/build.gradle android/app
+           yarn install
+           npx expo prebuild
+      # - name: Set up app/build.gradle
+      #   script: |
+      #     mv ./support-files/build.gradle android/app
       - name: Set Android SDK location
         script: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"          

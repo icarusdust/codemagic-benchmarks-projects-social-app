@@ -14,6 +14,7 @@ workflows:
       #   - google_play # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS <-- Put your google-services.json)
       vars:
         PACKAGE_NAME: "io.codemagic.expoapp" # <-- Put your package name here e.g. com.domain.myapp
+      java: 17
     triggering:
       events:
           - push

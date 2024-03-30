@@ -25,7 +25,7 @@ workflows:
             include: true
             source: true
     scripts:
-      - name: Install dependencies and Expo CLI, and eject app
+      - name: Install dependencies and set up app
         script: |
           yarn install
           yarn global add expo-cli
@@ -68,7 +68,7 @@ workflows:
   react-native-ios:
     name: React Native iOS
     max_build_duration: 120
-    instance_type: mac_mini_m2
+    instance_type: mac_mini_m1
     # integrations:
     #   app_store_connect: Codemagic
     environment:
@@ -85,7 +85,7 @@ workflows:
      cache_paths:
       - $HOME/Library/Caches/CocoaPods
     scripts:
-      - name: Install dependencies, Expo CLI and eject app
+      - name: Install dependencies and set up app
         script: |
           yarn install
           npx expo prebuild

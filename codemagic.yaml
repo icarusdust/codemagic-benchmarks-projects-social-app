@@ -27,7 +27,9 @@ workflows:
       - name: Install dependencies and set up app
         script: |
            npm install --legacy-peer-deps
+    
            npx expo prebuild
+
       # - name: Set up app/build.gradle
       #   script: |
       #     mv ./support-files/build.gradle android/app

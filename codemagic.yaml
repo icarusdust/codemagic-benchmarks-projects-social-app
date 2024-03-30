@@ -127,7 +127,7 @@ workflows:
       - name: Set up code signing settings on Xcode project
         script: |
           xcode-project use-profiles --warn-only
-      - name: Customise iOS entitlements:
+      - name: Customise iOS entitlements
         script: |     
           sed -i.bak '/com.apple.security.application-groups/d' $CM_BUILD_DIR/ios/Bluesky/Bluesky.entitlements
           sed -i.bak '/com.apple.security.application-groups/d' $CM_BUILD_DIR/ios/Share-with-Bluesky/Share-with-Bluesky.entitlements

@@ -111,26 +111,26 @@ workflows:
       #   script: |
       #     eas update --branch main --message "Fixing the app bugs"
       
-      - name: Set Info.plist values
-        script: |
-          PLIST=$FCI_BUILD_DIR/$XCODE_SCHEME/Info.plist
-          PLIST_BUDDY=/usr/libexec/PlistBuddy
-          $PLIST_BUDDY -c "Add :ITSAppUsesNonExemptEncryption bool false" $PLIST]
+      # - name: Set Info.plist values
+      #   script: |
+      #     PLIST=$FCI_BUILD_DIR/$XCODE_SCHEME/Info.plist
+      #     PLIST_BUDDY=/usr/libexec/PlistBuddy
+      #     $PLIST_BUDDY -c "Add :ITSAppUsesNonExemptEncryption bool false" $PLIST]
       - name: Install CocoaPods dependencies
         script: |
           cd ios && pod install
-      - name: Increment build number
-        script: |
-          cd $CM_BUILD_DIR/ios
-          LATEST_BUILD_NUMBER=$(app-store-connect get-latest-testflight-build-number "$APP_ID")
-          agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
+      # - name: Increment build number
+      #   script: |
+      #     cd $CM_BUILD_DIR/ios
+      #     LATEST_BUILD_NUMBER=$(app-store-connect get-latest-testflight-build-number "$APP_ID")
+      #     agvtool new-version -all $(($LATEST_BUILD_NUMBER + 1))
       - name: Set up code signing settings on Xcode project
         script: |
           xcode-project use-profiles --warn-only
       - name: Build ipa for distribution
         script: |
           xcode-project build-ipa \
-            --project "$CM_BUILD_DIR/ios/$XCODE_PROJECT" \
+            --workspace "$CM_BUILD_DIR/ios/Bluesky.xcworkspace" \
             --scheme "$XCODE_SCHEME"
     artifacts:
         - build/ios/ipa/*.ipa
